@@ -1,0 +1,34 @@
+name: Deploy To Production
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - run: /usr/bin/python3 -m pip install --upgrade pip
+    - run: /usr/bin/python3 -m pip install --upgrade setuptools
+    # - run: /usr/bin/python3 -m pip install --upgrade mkdocs==1.2.2
+    - run: /usr/bin/python3 -m pip install --upgrade mkdocs
+    # - run: /usr/bin/python3 -m pip install --upgrade mkdocs-minify-plugin==0.4.0
+    - run: /usr/bin/python3 -m pip install --upgrade mkdocs-minify-plugin
+    - run: git fetch -p
+    - run: /usr/bin/python3 -m mkdocs gh-deploy -f website/mkdocs.yml -b website
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+    - name: Deploy to Production
+      uses: fifsky/ssh-action@master
+      with:
+        command: cd && cd citystats.rhtservices.net && git pull origin website
+        host: ${{ secrets.HOSTNAME }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        port: ${{ secrets.PORT_NUMBER }}
+        user: ${{ secrets.USERNAME }}
