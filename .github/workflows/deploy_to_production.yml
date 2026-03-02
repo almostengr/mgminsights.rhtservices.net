@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - run: /usr/bin/python3 -m pip install --upgrade pip
     - run: /usr/bin/python3 -m pip install --upgrade setuptools
     # - run: /usr/bin/python3 -m pip install --upgrade mkdocs==1.2.2
