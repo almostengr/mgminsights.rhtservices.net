@@ -17,6 +17,7 @@ jobs:
     - run: /usr/bin/python3 -m pip install --upgrade mkdocs
     # - run: /usr/bin/python3 -m pip install --upgrade mkdocs-minify-plugin==0.4.0
     - run: /usr/bin/python3 -m pip install --upgrade mkdocs-minify-plugin
+    - run: /usr/bin/python3 -m pip install mkdocs-material
     - run: git fetch -p
     - run: /usr/bin/python3 -m mkdocs gh-deploy -f website/mkdocs.yml -b website
 
