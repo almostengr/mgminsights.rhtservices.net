@@ -1,5 +1,7 @@
 site_name: MGM Insights
 site_url: https://mgminsights.rhtservices.net
+site_author: RHT Services
+copyright: 2026 RHT Services
 theme:
   name: readthedocs
   # palette:
@@ -28,3 +30,8 @@ theme:
   #     as to measure the effectiveness of our documentation and whether users
   #     find what they're searching for. With your consent, you're helping us to
   #     make our documentation better.
+use_directory_urls: false
+
+plugins: 
+  - search
+  - minify
