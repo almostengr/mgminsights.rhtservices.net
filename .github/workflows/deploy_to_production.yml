@@ -29,7 +29,7 @@ jobs:
     - name: Deploy to Production
       uses: fifsky/ssh-action@master
       with:
-        command: cd && cd citystats.rhtservices.net && git pull origin website
+        command: cd && cd mgminsights.rhtservices.net && git pull origin website
         host: ${{ secrets.HOSTNAME }}
         key: ${{ secrets.PRIVATE_KEY }}
         port: ${{ secrets.PORT_NUMBER }}
