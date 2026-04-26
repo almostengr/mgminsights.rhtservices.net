@@ -1,4 +1,4 @@
-# City Stats
+# MGM Insights
 
 Get the latest information for your city using publicly accessible data.
 
